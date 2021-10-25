@@ -11,10 +11,16 @@ In this project you will build such a pipeline.
 W&B project link: https://wandb.ai/jelal/nyc_airbnb/overview
 
 
+## GitHub Project
+
+https://github.com/jenapss/ML-Pipeline
+
+
 ## Table of contents
 
 - [Build an ML Pipeline for Short-Term Rental Prices in NYC](#build-an-ml-pipeline-for-short-term-rental-prices-in-nyc)
   - [W&B Project](#wb-project)
+  - [GitHub Project](#github-project)
   - [Table of contents](#table-of-contents)
   - [Preliminary steps](#preliminary-steps)
     - [Fork the Starter kit](#fork-the-starter-kit)
