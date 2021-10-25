@@ -52,7 +52,7 @@ git clone https://github.com/[your github username]/ML-Pipeline.git
 and go into the repository:
 
 ```
-cd nd0821-c2-build-model-workflow-starter
+cd ML-Pipeline
 ```
 Commit and push to the repository often while you make progress towards the solution. Remember 
 to add meaningful commit messages.
