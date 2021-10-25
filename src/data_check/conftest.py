@@ -29,6 +29,7 @@ def data(request):
 
 @pytest.fixture(scope='session')
 def ref_data(request):
+    """ Utility function to check version of the artifact """
     run = wandb.init(job_type="data_tests", resume=True)
 
     # Download input artifact. This will also note that this script is using this
@@ -45,6 +46,7 @@ def ref_data(request):
 
 @pytest.fixture(scope='session')
 def kl_threshold(request):
+    """ Minor function to verify the kl_threshold value"""
     kl_threshold = request.config.option.kl_threshold
 
     if kl_threshold is None:
@@ -54,6 +56,7 @@ def kl_threshold(request):
 
 @pytest.fixture(scope='session')
 def min_price(request):
+    """ Minor function to verify min_price value """
     min_price = request.config.option.min_price
 
     if min_price is None:
@@ -63,6 +66,7 @@ def min_price(request):
 
 @pytest.fixture(scope='session')
 def max_price(request):
+    """ Minor function to verify max_price value """
     max_price = request.config.option.max_price
 
     if max_price is None:

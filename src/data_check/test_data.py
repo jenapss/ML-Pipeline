@@ -4,6 +4,10 @@ import scipy.stats
 
 
 def test_column_names(data):
+    '''
+    Check whether column names are supported
+
+    '''
 
     expected_colums = [
         "id",
@@ -31,6 +35,10 @@ def test_column_names(data):
 
 
 def test_neighborhood_names(data):
+    '''
+    Test neighbourhood column names.
+
+    '''
 
     known_names = ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"]
 
@@ -63,3 +71,15 @@ def test_similar_neigh_distrib(data: pd.DataFrame, ref_data: pd.DataFrame, kl_th
 ########################################################
 # Implement here test_row_count and test_price_range   #
 ########################################################
+def test_row_count(data):
+    """
+    Test the row count 
+    """
+    assert 15000 < data.shape[0] < 1000000
+
+def test_price_range(data, min_price, max_price):
+    """
+    Test price range
+    """
+    assert data['price'].between(min_price, max_price).all()
+
