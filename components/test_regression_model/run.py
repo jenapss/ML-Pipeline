@@ -8,7 +8,6 @@ import wandb
 import mlflow
 import pandas as pd
 from sklearn.metrics import mean_absolute_error
-
 from wandb_utils.log_artifact import log_artifact
 
 
@@ -43,7 +42,6 @@ def go(args):
     r_squared = sk_pipe.score(X_test, y_test)
 
     mae = mean_absolute_error(y_test, y_pred)
-
     logger.info(f"Score: {r_squared}")
     logger.info(f"MAE: {mae}")
 
