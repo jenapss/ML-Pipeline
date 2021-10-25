@@ -39,9 +39,7 @@ https://github.com/jenapss/ML-Pipeline
     - [Train Random Forest](#train-random-forest)
     - [Optimize hyperparameters](#optimize-hyperparameters)
     - [Select the best model](#select-the-best-model)
-    - [Test](#test)
     - [Visualize the pipeline](#visualize-the-pipeline)
-    - [Release the pipeline](#release-the-pipeline)
     - [Train the model on a new data sample](#train-the-model-on-a-new-data-sample)
   - [License](#license)
 
@@ -182,12 +180,7 @@ _ = mlflow.run(
                 },
             )
 ```
-where `config['main']['components_repository']` is set to 
-[https://github.com/udacity/nd0821-c2-build-model-workflow-starter#components](https://github.com/udacity/nd0821-c2-build-model-workflow-starter/tree/master/components).
-You can see the parameters that they require by looking into their `MLproject` file:
 
-- `get_data`: downloads the data. [MLproject](https://github.com/udacity/nd0821-c2-build-model-workflow-starter/blob/master/components/get_data/MLproject)
-- `train_val_test_split`: segrgate the data (splits the data) [MLproject](https://github.com/udacity/nd0821-c2-build-model-workflow-starter/blob/master/components/train_val_test_split/MLproject)
 
 ## In case of errors
 When you make an error writing your `conda.yml` file, you might end up with an environment for the pipeline or one
@@ -514,12 +507,6 @@ Go to the artifact section of the selected job, and select the
 `model_export` output artifact.  Add a ``prod`` tag to it to mark it as 
 "production ready".
 
-### Test
-Use the provided step ``test_regression_model`` to test your production model against the
-test set. Implement the call to this component in the `main.py` file. As usual you can see the parameters in the
-corresponding [MLproject](https://github.com/udacity/nd0821-c2-build-model-workflow-starter/blob/master/components/test_regression_model/MLproject) 
-file. Use the artifact `random_forest_export:prod` for the parameter `mlflow_model` and the test artifact
-`test_data.csv:latest` as `test_artifact`.
 
 **NOTE**: This step is NOT run by default when you run the pipeline. In fact, it needs the manual step
 of promoting a model to ``prod`` before it can complete successfully. Therefore, you have to
@@ -533,18 +520,7 @@ activate it explicitly on the command line:
 You can now go to W&B, go the Artifacts section, select the model export artifact then click on the
 ``Graph view`` tab. You will see a representation of your pipeline.
 
-### Release the pipeline
-First copy the best hyper parameters you found in your ``configuration.yml`` so they become the
-default values. Then, go to your repository on GitHub and make a release. 
-If you need a refresher, here are some [instructions](https://docs.github.com/en/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)
-on how to release on GitHub.
 
-Call the release ``1.0.0``:
-
-![tag the release](images/tag-release-github.png "tag the release")
-
-If you find problems in the release, fix them and then make a new release like ``1.0.1``, ``1.0.2``
-and so on.
 
 ### Train the model on a new data sample
 
