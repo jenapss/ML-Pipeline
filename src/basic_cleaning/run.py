@@ -43,8 +43,6 @@ def go_function(args):
     logger.info("Outliers are dropped")
     data_frame['last_review'] = pd.to_datetime(data_frame['last_review'])
 
-    idx = data_frame['longitude'].between(-74.25, -73.50) & data_frame['latitude'].between(40.5, 41.2)
-    data_frame = data_frame[idx].copy()
 
     
     filename = args.output_artifact
